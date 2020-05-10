@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # https://forecast.weather.gov/
+# you can do this with all of the city url in this website
 url = 'https://forecast.weather.gov/MapClick.php?lat=34.00840430000005&lon=-118.32814719999999#.Xrhu9xP7RTY'
 page = requests.get(url)
 soup = BeautifulSoup(page.content, 'html.parser')
@@ -20,6 +21,7 @@ temperature = [item.find(class_='temp').get_text() for item in items]
 # print(short_description)
 # print(temperature)
 print('\n')
+
 weather_stuff = pd.DataFrame(
     {
         'period': period_names,
