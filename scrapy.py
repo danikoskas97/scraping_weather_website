@@ -9,7 +9,7 @@ page = requests.get(url)
 soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(id="seven-day-forecast-body")
 items = week.findAll(class_='tombstone-container')
-
+print(items)
 print(items[0].find(class_='period-name').get_text())
 print(items[0].find(class_='short-desc').get_text())
 print(items[0].find(class_='temp').get_text())
@@ -22,6 +22,8 @@ temperature = [item.find(class_='temp').get_text() for item in items]
 # print(temperature)
 print('\n')
 
+
+"""
 weather_stuff = pd.DataFrame(
     {
         'period': period_names,
@@ -30,3 +32,5 @@ weather_stuff = pd.DataFrame(
     })
 print(weather_stuff)
 weather_stuff.to_csv('weather.csv')
+"""
+
